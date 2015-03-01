@@ -1,0 +1,12 @@
+package org.terifan.zulu.scenegraph;
+
+
+public interface RenderOrder
+{
+	public final static int BACKGROUND = 0x01000000;
+	public final static int OPAQUE     = 0x02000000;
+	public final static int BANNER     = 0x04000000;
+	public final static int UNDERWATER = 0x08000000;
+	public final static int ADDITIVE   = 0x10000000;
+	public final static int NEAREST    = 0x20000000;
+}

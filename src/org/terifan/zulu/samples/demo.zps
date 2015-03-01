@@ -1,0 +1,11 @@
+using TEXTURE0.rgba opaque;
+using TEXCOORD0.uv opaquecoord;
+
+void main()
+{
+	if (g_FragCoord.z < g_FragDepth)
+	{
+		g_FragColor = tex2d(opaque, opaquecoord);
+		g_FragDepth = g_FragCoord.z;
+	}
+}
