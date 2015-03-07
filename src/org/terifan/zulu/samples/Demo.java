@@ -100,7 +100,7 @@ public class Demo
 		view.getViewTransform().translate(0,0,-15);
 		view.addRenderingStateListener(new MyRenderingStateListener());
 
-		SceneGraph scene = new SceneGraph(8);
+		SceneGraph scene = new SceneGraph(3);
 		scene.setPrintPerformanceData(!false);
 		scene.addView(view);
 
