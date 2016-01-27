@@ -9,8 +9,8 @@ import java.nio.ByteOrder;
 import org.terifan.io.Streams;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.Texture2D.TextureData;
-import org.terifan.util.math.Vector3f;
-import org.terifan.util.ImageDecoder;
+import org.terifan.zulu.math.Vector3f;
+import org.terifan.zeus.util.ImageDecoder;
 
 
 public class VTFLoader

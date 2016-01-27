@@ -1,11 +1,11 @@
 package org.terifan.zulu.core;
 
-import org.terifan.util.script.Branch;
-import org.terifan.util.script.Function;
-import org.terifan.util.script.Keyword;
-import org.terifan.util.script.Language;
-import org.terifan.util.script.Operator;
-import org.terifan.util.script.Primitive;
+import org.terifan.zeus.util.script.Branch;
+import org.terifan.zeus.util.script.Function;
+import org.terifan.zeus.util.script.Keyword;
+import org.terifan.zeus.util.script.Language;
+import org.terifan.zeus.util.script.Operator;
+import org.terifan.zeus.util.script.Primitive;
 
 
 class PixelShaderLanguage extends Language

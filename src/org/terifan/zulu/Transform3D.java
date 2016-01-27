@@ -2,9 +2,9 @@ package org.terifan.zulu;
 
 import org.terifan.zulu.core.GeometryBuffer;
 import org.terifan.zulu.util.vecmath.Point3d;
-import org.terifan.util.math.Tuple3d;
-import org.terifan.util.math.Vector3d;
-import org.terifan.util.math.Vector4d;
+import org.terifan.zulu.math.Tuple3d;
+import org.terifan.zulu.math.Vector3d;
+import org.terifan.zulu.math.Vector4d;
 
 
 public class Transform3D

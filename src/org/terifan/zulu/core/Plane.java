@@ -1,6 +1,6 @@
 package org.terifan.zulu.core;
 
-import org.terifan.util.math.Vector3d;
+import org.terifan.zulu.math.Vector3d;
 
 
 public class Plane

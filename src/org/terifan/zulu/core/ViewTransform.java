@@ -1,7 +1,7 @@
 package org.terifan.zulu.core;
 
 import org.terifan.zulu.Transform3D;
-import org.terifan.util.math.Tuple3d;
+import org.terifan.zulu.math.Tuple3d;
 
 
 public class ViewTransform extends Transform3D

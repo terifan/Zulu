@@ -15,7 +15,7 @@ import org.terifan.zulu.core.RenderingStateListener;
 import org.terifan.zulu.core.TransformStack;
 import org.terifan.zulu.core.ViewTransform;
 import org.terifan.zulu.core.WorkerData;
-import org.terifan.util.math.Vector3d;
+import org.terifan.zulu.math.Vector3d;
 
 
 public class View extends JComponent

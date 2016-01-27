@@ -1,6 +1,6 @@
 package org.terifan.zulu.util.vecmath;
 
-import org.terifan.util.math.Tuple2i;
+import org.terifan.zulu.math.Tuple2i;
 
 
 

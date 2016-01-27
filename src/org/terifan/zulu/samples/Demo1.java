@@ -44,7 +44,7 @@ public class Demo1
 
 	public Demo1() throws Exception
 	{
-		test1();
+		test2();
 	}
 
 
