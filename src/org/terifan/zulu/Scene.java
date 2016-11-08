@@ -35,7 +35,7 @@ public abstract class Scene extends Kernel
 	 * Constructs a Scene which use a specified number processors.
 	 *
 	 * @param aWorkerThreadCount
-	 *   specifices how many processors should be used.
+	 *   specifies how many processors should be used.
 	 * @param aViews
 	 *   an optional list of Views to be attached to this Scene.
 	 */

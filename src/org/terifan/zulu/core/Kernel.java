@@ -3,6 +3,7 @@ package org.terifan.zulu.core;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.lang.management.ManagementFactory;
+import org.terifan.util.log.Log;
 import org.terifan.zulu.View;
 
 
@@ -45,7 +46,7 @@ public abstract class Kernel
 	 */
 	protected Kernel(double aWorkerThreadPercent)
 	{
-		this(Math.max(1, Math.max(1, Math.min(getAvailableCPU(), (int)Math.round(aWorkerThreadPercent * getAvailableCPU())))));
+		this(Math.max(1, Math.min(getAvailableCPU(), (int)Math.round(aWorkerThreadPercent * getAvailableCPU()))));
 	}
 
 
@@ -53,7 +54,7 @@ public abstract class Kernel
 	 * Constructs a Kernel which use a specified number processors.
 	 *
 	 * @param aWorkerThreadCount
-	 *   specifices how many processors should be used.
+	 *   specifies how many processors should be used.
 	 */
 	protected Kernel(int aWorkerThreadCount)
 	{
