@@ -10,7 +10,7 @@ import org.terifan.io.Streams;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.Texture2D.TextureData;
 import org.terifan.zulu.math.Vector3f;
-import org.terifan.zeus.util.ImageDecoder;
+import org.terifan.zeus.util.codecs.ImageDecoder;
 
 
 public class VTFLoader
