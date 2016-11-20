@@ -1,6 +1,5 @@
 package org.terifan.zulu;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
@@ -8,14 +7,14 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import javax.swing.JComponent;
 import java.util.ArrayList;
+import org.terifan.algebra.Plane;
+import org.terifan.algebra.Vec3d;
 import org.terifan.zulu.core.GeometricProjection;
 import org.terifan.zulu.core.PerspectiveProjection;
-import org.terifan.zulu.core.Plane;
 import org.terifan.zulu.core.RenderingStateListener;
 import org.terifan.zulu.core.TransformStack;
 import org.terifan.zulu.core.ViewTransform;
 import org.terifan.zulu.core.WorkerData;
-import org.terifan.zulu.math.Vector3d;
 
 
 public class View extends JComponent
@@ -78,12 +77,12 @@ public class View extends JComponent
 
 		mFrustumPlanes = new Plane[]
 		{
-			new Plane(new Vector3d(  0,   0,  1),     5, true),
-			new Plane(new Vector3d( ch,   0, sh),     0, true),
-			new Plane(new Vector3d(-ch,   0, sh),     0, true),
-			new Plane(new Vector3d(  0, -cv, sv),     0, false),
-			new Plane(new Vector3d(  0,  cv, sv),     0, false),
-			new Plane(new Vector3d(  0,   0, -1), -2000, false)
+			new Plane(new Vec3d(  0,   0,  1),     5), //, true),
+			new Plane(new Vec3d( ch,   0, sh),     0), //, true),
+			new Plane(new Vec3d(-ch,   0, sh),     0), //, true),
+			new Plane(new Vec3d(  0, -cv, sv),     0), //, false),
+			new Plane(new Vec3d(  0,  cv, sv),     0), //, false),
+			new Plane(new Vec3d(  0,   0, -1), -2000), //, false)
 		};
 
 		mClipPlanes = new Plane[]{

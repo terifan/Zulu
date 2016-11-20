@@ -1,7 +1,7 @@
 package org.terifan.zulu.core;
 
+import org.terifan.algebra.Vec3d;
 import org.terifan.zulu.Transform3D;
-import org.terifan.zulu.math.Tuple3d;
 
 
 public class ViewTransform extends Transform3D
@@ -57,7 +57,7 @@ public class ViewTransform extends Transform3D
 
 
 	@Override
-	public void transform(Tuple3d aTuple)
+	public void transform(Vec3d aTuple)
 	{
 		float fx = (float)mForward.x;
 		float fy = (float)mForward.y;

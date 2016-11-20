@@ -1,6 +1,7 @@
 package org.terifan.zulu.core;
 
 import java.awt.Graphics;
+import org.terifan.algebra.Plane;
 import org.terifan.zulu.Material;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.View;
@@ -69,9 +70,9 @@ class GeometryClipper
 
 				for (int tmpIndex = 0, fieldIndex = newVertexIndex; tmpIndex < newVertexCount; tmpIndex++, fieldIndex += fieldCount)
 				{
-					double dot = plane.normal.dot(newVertexData[fieldIndex+0], newVertexData[fieldIndex+1], newVertexData[fieldIndex+2]);
+					double dot = plane.getNormal().dot(newVertexData[fieldIndex+0], newVertexData[fieldIndex+1], newVertexData[fieldIndex+2]);
 
-					if (dot < plane.distance)
+					if (dot < plane.getDistance())
 					{
 						requireClipping = true;
 					}
@@ -161,9 +162,9 @@ class GeometryClipper
 	{
 		int clippedVertexCount = 0;
 
-		double endDot = aPlane.normal.dot(aSrcBuffer[aVertexIndex+0], aSrcBuffer[aVertexIndex+1], aSrcBuffer[aVertexIndex+2]);
+		double endDot = aPlane.getNormal().dot(aSrcBuffer[aVertexIndex+0], aSrcBuffer[aVertexIndex+1], aSrcBuffer[aVertexIndex+2]);
 
-		double planeDistance = aPlane.distance;
+		double planeDistance = aPlane.getDistance();
 
 		for (int startVertexIndex = 0; startVertexIndex < aVertexCount; startVertexIndex++)
 		{
@@ -171,7 +172,7 @@ class GeometryClipper
 			int fieldOffset = aFieldCount * endVertexIndex;
 
 			double startDot = endDot;
-			endDot = aPlane.normal.dot(aSrcBuffer[aVertexIndex+fieldOffset+0], aSrcBuffer[aVertexIndex+fieldOffset+1], aSrcBuffer[aVertexIndex+fieldOffset+2]);
+			endDot = aPlane.getNormal().dot(aSrcBuffer[aVertexIndex+fieldOffset+0], aSrcBuffer[aVertexIndex+fieldOffset+1], aSrcBuffer[aVertexIndex+fieldOffset+2]);
 
 			boolean startInside = startDot >= planeDistance;
 			boolean endInside = endDot >= planeDistance;

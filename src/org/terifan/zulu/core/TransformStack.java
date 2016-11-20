@@ -6,7 +6,7 @@ import org.terifan.zulu.Transform3D;
 
 public class TransformStack
 {
-	private Stack<Transform3D> mStack = new Stack<Transform3D>();
+	private Stack<Transform3D> mStack = new Stack<>();
 //	private Quaternion mTempQuaternion = new Quaternion();
 //	private Vector mTempInversePosition = new Vector();
 //	private Vector mTempPosition = new Vector();

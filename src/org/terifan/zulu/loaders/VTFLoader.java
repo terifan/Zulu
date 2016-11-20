@@ -1,5 +1,6 @@
 package org.terifan.zulu.loaders;
 
+import com.sun.javafx.geom.Vec3f;
 import java.awt.Dimension;
 import java.io.ByteArrayOutputStream;
 import java.util.Stack;
@@ -9,7 +10,6 @@ import java.nio.ByteOrder;
 import org.terifan.io.Streams;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.Texture2D.TextureData;
-import org.terifan.zulu.math.Vector3f;
 import org.terifan.zeus.util.codecs.ImageDecoder;
 
 
@@ -68,7 +68,7 @@ public class VTFLoader
 
 		in.getInt(); // minor version
 
-		Vector3f reflectivity = new Vector3f();
+		Vec3f reflectivity = new Vec3f();
 		int headerSize = in.getInt();
 		int width = 0xffff & in.getShort();
 		int height = 0xffff & in.getShort();

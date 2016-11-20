@@ -1,33 +1,31 @@
 package org.terifan.zulu;
 
+import org.terifan.algebra.Vec3d;
+import org.terifan.algebra.Vec4d;
 import org.terifan.zulu.core.GeometryBuffer;
-import org.terifan.zulu.util.vecmath.Point3d;
-import org.terifan.zulu.math.Tuple3d;
-import org.terifan.zulu.math.Vector3d;
-import org.terifan.zulu.math.Vector4d;
 
 
 public class Transform3D
 {
 	protected boolean mInverse;
-	protected Point3d mTranslate;
-	protected Vector3d mRotation;
-	protected Vector4d mForward;
-	protected Vector4d mInverted;
+	protected Vec3d mTranslate;
+	protected Vec3d mRotation;
+	protected Vec4d mForward;
+	protected Vec4d mInverted;
 
 
 	public Transform3D()
 	{
-		mTranslate = new Point3d();
-		mForward = new Vector4d();
-		mInverted = new Vector4d();
-		mRotation = new Vector3d();
+		mTranslate = new Vec3d();
+		mForward = new Vec4d();
+		mInverted = new Vec4d();
+		mRotation = new Vec3d();
 
 		initialize();
 	}
 
 
-	public Transform3D setTranslation(Tuple3d aTuple)
+	public Transform3D setTranslation(Vec3d aTuple)
 	{
 		mTranslate.set(aTuple);
 		return this;
@@ -41,7 +39,7 @@ public class Transform3D
 	}
 
 
-	public Transform3D translate(Tuple3d aTuple)
+	public Transform3D translate(Vec3d aTuple)
 	{
 		mTranslate.add(aTuple);
 		return this;
@@ -55,7 +53,7 @@ public class Transform3D
 	}
 
 
-	public Transform3D setRotation(Tuple3d aTuple)
+	public Transform3D setRotation(Vec3d aTuple)
 	{
 		mRotation.set(aTuple);
 		initialize();
@@ -71,7 +69,7 @@ public class Transform3D
 	}
 
 
-	public Transform3D rotate(Tuple3d aTuple)
+	public Transform3D rotate(Vec3d aTuple)
 	{
 		mRotation.add(aTuple);
 		initialize();
@@ -142,7 +140,7 @@ public class Transform3D
 	}
 
 
-	public void transform(Tuple3d aTuple)
+	public void transform(Vec3d aTuple)
 	{
 		float fx = (float)mForward.x;
 		float fy = (float)mForward.y;

@@ -1,5 +1,9 @@
 package org.terifan.zulu.samples;
 
+import com.sun.javafx.geom.Vec2f;
+import com.sun.javafx.geom.Vec3f;
+import com.sun.javafx.geom.Vec4f;
+import com.sun.scenario.effect.Color4f;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -22,9 +26,6 @@ import org.terifan.zulu.scenegraph.BranchGroup;
 import org.terifan.zulu.scenegraph.Group;
 import org.terifan.zulu.scenegraph.SceneGraph;
 import org.terifan.zulu.scenegraph.Shape3D;
-import org.terifan.zulu.util.vecmath.Color4f;
-import org.terifan.zulu.util.vecmath.Point3f;
-import org.terifan.zulu.util.vecmath.TexCoord2f;
 
 
 public class Demo1
@@ -164,10 +165,10 @@ public class Demo1
 
 		LineNumberReader reader = new LineNumberReader(new InputStreamReader(Demo1.class.getResourceAsStream(aPath)));
 
-		Point3f [] coords = null;
-		Point3f [] normals = null;
-		TexCoord2f [] texCoords = null;
-		Color4f [] colors = null;
+		Vec3f [] coords = null;
+		Vec3f [] normals = null;
+		Vec2f [] texCoords = null;
+		Vec4f [] colors = null;
 
 		int [] coordIndices = null;
 		int [] normalIndices = null;
@@ -189,19 +190,19 @@ public class Demo1
 			}
 			else if (s.startsWith("coords"))
 			{
-				coords = new Point3f[Integer.parseInt(s.substring(7))];
+				coords = new Vec3f[Integer.parseInt(s.substring(7))];
 			}
 			else if (s.startsWith("texcoords"))
 			{
-				texCoords = new TexCoord2f[Integer.parseInt(s.substring(10))];
+				texCoords = new Vec2f[Integer.parseInt(s.substring(10))];
 			}
 			else if (s.startsWith("colors"))
 			{
-				colors = new Color4f[Integer.parseInt(s.substring(7))];
+				colors = new Vec4f[Integer.parseInt(s.substring(7))];
 			}
 			else if (s.startsWith("normals"))
 			{
-				normals = new Point3f[Integer.parseInt(s.substring(8))];
+				normals = new Vec3f[Integer.parseInt(s.substring(8))];
 			}
 			else if (s.startsWith("vertices"))
 			{
@@ -216,7 +217,7 @@ public class Demo1
 				int i = Integer.parseInt(s.substring(0, s.indexOf(" ")));
 				s = s.substring(s.indexOf(" ")+1).trim();
 				String [] t = s.split(" ");
-				coords[i] = new Point3f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]));
+				coords[i] = new Vec3f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]));
 			}
 			else if (s.startsWith("texcoord"))
 			{
@@ -224,7 +225,7 @@ public class Demo1
 				int i = Integer.parseInt(s.substring(0, s.indexOf(" ")));
 				s = s.substring(s.indexOf(" ")+1).trim();
 				String [] t = s.split(" ");
-				texCoords[i] = new TexCoord2f(Float.parseFloat(t[0]), Float.parseFloat(t[1]));
+				texCoords[i] = new Vec2f(Float.parseFloat(t[0]), Float.parseFloat(t[1]));
 			}
 			else if (s.startsWith("color"))
 			{
@@ -232,7 +233,7 @@ public class Demo1
 				int i = Integer.parseInt(s.substring(0, s.indexOf(" ")));
 				s = s.substring(s.indexOf(" ")+1).trim();
 				String [] t = s.split(" ");
-				colors[i] = new Color4f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]), Float.parseFloat(t[3]));
+				colors[i] = new Vec4f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]), Float.parseFloat(t[3]));
 			}
 			else if (s.startsWith("normal"))
 			{
@@ -240,7 +241,7 @@ public class Demo1
 				int i = Integer.parseInt(s.substring(0, s.indexOf(" ")));
 				s = s.substring(s.indexOf(" ")+1).trim();
 				String [] t = s.split(" ");
-				normals[i] = new Point3f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]));
+				normals[i] = new Vec3f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]));
 			}
 			else if (s.startsWith("vertex"))
 			{
