@@ -56,7 +56,7 @@ class WorkerThread extends Thread
 	@Override
 	public void run()
 	{
-		// worker threads wait here for the Kernel class to call the initialize 
+		// worker threads wait here for the Kernel class to call the initialize
 		// method of each work
 		synchronized (mKernel.WORKERTHREAD_LOCK)
 		{
@@ -142,7 +142,7 @@ class WorkerThread extends Thread
 				//System.out.print(" "+(System.nanoTime()-mWorkerData.mSyncTime)/1000000);
 
 				// TODO: the paused and shutdown flags must be synchronized some how so that all workers do the same thing!!!
-	
+
 				if (mKernel.mPaused)
 				{
 					//...
@@ -152,7 +152,7 @@ class WorkerThread extends Thread
 					break;
 				}
 			}
-			
+
 			mKernel.workerStopped(this);
 		}
 		catch (Throwable e)
@@ -186,13 +186,13 @@ class WorkerThread extends Thread
 		}
 	}
 
-	
+
 	GeometryRenderer getGeometryRenderer()
 	{
 		return mGeometryRenderer;
 	}
 
-	
+
 	WorkerData getWorkerData()
 	{
 		return mWorkerData;
