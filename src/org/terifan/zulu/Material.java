@@ -13,7 +13,7 @@ public class Material
 	private PixelRenderer [] mPixelRenderer;
 	private ArrayList<Texture2D> mTextures;
 	private Resource mResource;
-
+ 
 
 	public Material()
 	{
