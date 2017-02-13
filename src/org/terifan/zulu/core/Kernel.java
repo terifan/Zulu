@@ -74,16 +74,16 @@ public abstract class Kernel
 		// TODO:
 		if (mStarted && mShutdown)
 		{
-			throw new RuntimeException("Restarting a Kernel is currently not supported!!");
+			throw new IllegalStateException("Restarting a Kernel is currently not supported!!");
 		}
 
 		if (mStarted)
 		{
-			throw new RuntimeException("Scene is already started.");
+			throw new IllegalStateException("Scene is already started.");
 		}
 		if (mView == null)
 		{
-			throw new RuntimeException("Inherited mView variable must be initialized with a target View before rendering can be started.");
+			throw new IllegalStateException("Inherited mView variable must be initialized with a target View before rendering can be started.");
 		}
 
 		mWorkerThreads = new WorkerThread[mWorkerThreadCount];
@@ -119,7 +119,7 @@ public abstract class Kernel
 	{
 		if (!mStarted)
 		{
-			throw new RuntimeException("Scene is not started.");
+			throw new IllegalStateException("Scene is not started.");
 		}
 		mShutdown = true;
 	}
@@ -129,11 +129,11 @@ public abstract class Kernel
 	{
 		if (!mStarted)
 		{
-			throw new RuntimeException("Scene is not started.");
+			throw new IllegalStateException("Scene is not started.");
 		}
 		if (mPaused)
 		{
-			throw new RuntimeException("Scene is already paused.");
+			throw new IllegalStateException("Scene is already paused.");
 		}
 		mPaused = true;
 	}
@@ -143,11 +143,11 @@ public abstract class Kernel
 	{
 		if (!mStarted)
 		{
-			throw new RuntimeException("Scene is not started.");
+			throw new IllegalStateException("Scene is not started.");
 		}
 		if (!mPaused)
 		{
-			throw new RuntimeException("Scene is not paused.");
+			throw new IllegalStateException("Scene is not paused.");
 		}
 		mPaused = false;
 	}

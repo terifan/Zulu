@@ -86,7 +86,7 @@ public class /**value-of SHADER_NAME*/ implements PixelRenderer
 		mTexture#ID = aGeometryBuffer.getTextures()[aTextureOffset+#ID];
 		if (mTexture#ID == null)
 		{
-			throw new RuntimeException("Texture unit "+(aTextureOffset+#ID)+" is not initialized.");
+			throw new IllegalStateException("Texture unit "+(aTextureOffset+#ID)+" is not initialized.");
 		}
 		/**next TEXTURE*/
 		mFrameBuffer = aFrameBuffer;

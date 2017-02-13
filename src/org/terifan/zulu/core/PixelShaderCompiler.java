@@ -56,7 +56,7 @@ public class PixelShaderCompiler
 			}
 			catch (Throwable e)
 			{
-				throw new RuntimeException(e);
+				throw new IllegalStateException(e);
 			}
 		}
 	}
@@ -181,7 +181,7 @@ public class PixelShaderCompiler
 		}
 		catch (IOException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 	}
 
@@ -230,19 +230,19 @@ public class PixelShaderCompiler
 		}
 		catch (IOException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 		catch (ClassNotFoundException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 		catch (InstantiationException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 	}
 
@@ -507,9 +507,9 @@ public class PixelShaderCompiler
 				switch (component)
 				{
 					case "x":
-						throw new RuntimeException("not implemented");
+						throw new IllegalStateException("not implemented");
 					case "y":
-						throw new RuntimeException("not implemented");
+						throw new IllegalStateException("not implemented");
 					case "z":
 						mPendingCode.append("fragZ");
 						break;
@@ -728,7 +728,7 @@ for(ParamNode pn:list)
         }
         if (!tempDir.exists())
         {
-            throw new RuntimeException("No temporary directory nor home directory exists in this environment. Define a user.home or java.io.tmpdir system property and then restart.");
+            throw new IllegalStateException("No temporary directory nor home directory exists in this environment. Define a user.home or java.io.tmpdir system property and then restart.");
         }
 
         tempDir = new File(tempDir.getAbsolutePath()+"/Zulu Temporary Files");
@@ -736,7 +736,7 @@ for(ParamNode pn:list)
 
         if (!tempDir.exists())
         {
-            throw new RuntimeException("Failed to create temporary directory at " + tempDir.getAbsolutePath());
+            throw new IllegalStateException("Failed to create temporary directory at " + tempDir.getAbsolutePath());
         }
 
         return tempDir.getAbsolutePath() + "/";

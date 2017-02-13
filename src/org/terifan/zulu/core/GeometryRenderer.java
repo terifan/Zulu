@@ -142,7 +142,7 @@ class GeometryRenderer
 		int by = (int)Math.ceil(buffer[aVertexB+1]);
 		int cy = (int)Math.ceil(buffer[aVertexC+1]);
 
-		if (ay > by || by > cy || ay > cy) throw new RuntimeException();
+		if (ay > by || by > cy || ay > cy) throw new IllegalStateException();
 
 		// Render upper part of triangle
 		int skip = ay >= mSliceY ? 0 : mSliceY - ay;
