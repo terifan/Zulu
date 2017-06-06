@@ -96,11 +96,11 @@ public class Demo
 
 	private void demo1()
 	{
-		View view = new View(1024, 768, "view3");
+		View view = new View(2*1024, 2*768, "view3");
 		view.getViewTransform().translate(0,0,-15);
 		view.addRenderingStateListener(new MyRenderingStateListener());
 
-		SceneGraph scene = new SceneGraph(3);
+		SceneGraph scene = new SceneGraph(4);
 		scene.setPrintPerformanceData(!false);
 		scene.addView(view);
 
