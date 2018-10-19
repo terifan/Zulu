@@ -1,9 +1,5 @@
 package org.terifan.zulu.samples;
 
-import com.sun.javafx.geom.Vec2f;
-import com.sun.javafx.geom.Vec3f;
-import com.sun.javafx.geom.Vec4f;
-import com.sun.scenario.effect.Color4f;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -13,6 +9,9 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import org.terifan.algebra.Vec2f;
+import org.terifan.algebra.Vec3f;
+import org.terifan.algebra.Vec4f;
 import org.terifan.zulu.Material;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.Transform3D;
