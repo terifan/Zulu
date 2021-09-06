@@ -50,7 +50,7 @@ public abstract class Scene extends Kernel
 	public void addView(View ... aViews)
 	{
 		if (aViews.length > 0)
-		{	
+		{
 			View [] t = new View[mViews.length + aViews.length];
 			System.arraycopy(mViews, 0, t, 0, mViews.length);
 			System.arraycopy(aViews, 0, t, mViews.length, aViews.length);
@@ -97,5 +97,6 @@ public abstract class Scene extends Kernel
 	protected abstract void initializeScene();
 
 
+	@Override
 	protected abstract void renderScene(RenderState aRenderState);
 }

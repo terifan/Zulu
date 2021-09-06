@@ -3,7 +3,6 @@ package org.terifan.zulu.core;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.lang.management.ManagementFactory;
-import org.terifan.util.log.Log;
 import org.terifan.zulu.View;
 
 
@@ -67,8 +66,8 @@ public abstract class Kernel
 	{
 		return ManagementFactory.getOperatingSystemMXBean().getAvailableProcessors();
 	}
-	
-	
+
+
 	public void startRendering()
 	{
 		// TODO:
@@ -108,8 +107,8 @@ public abstract class Kernel
 			WORKERTHREAD_LOCK.notifyAll();
 		}
 	}
-	
-	
+
+
 	void workerStopped(WorkerThread aWorkerThread)
 	{
 	}
@@ -166,8 +165,8 @@ public abstract class Kernel
 
 
 	/**
-	 * One of the WorkerThread threads calls this method once for each 
-	 * View. This method calls the initializeScene for the first View and then 
+	 * One of the WorkerThread threads calls this method once for each
+	 * View. This method calls the initializeScene for the first View and then
 	 * the renderScene method.
 	 */
 	protected void beginFrame()
@@ -200,7 +199,7 @@ public abstract class Kernel
 
 	/**
 	 * The last of the WorkerThread threads to finish will call this method.
-	 * This method finalizes current frame and initializes the worker threads 
+	 * This method finalizes current frame and initializes the worker threads
 	 * for the next frame.
 	 *
 	 * When this method is call, all worker threads are in a waiting state.
@@ -243,11 +242,11 @@ public abstract class Kernel
 	{
 		mView.publishFrame();
 	}
-	
-	
+
+
 	/**
-	 * The finishFrame method calls this method after the current frame has been 
-	 * finalized and before the worker threads are initialized for the next 
+	 * The finishFrame method calls this method after the current frame has been
+	 * finalized and before the worker threads are initialized for the next
 	 * frame. This method implementation is emtpy.
 	 */
 	protected void finishView()
@@ -348,8 +347,8 @@ public abstract class Kernel
 
 
 	/**
-	 * The renderScene implementation calls this method. This method transforms 
-	 * the geometry using the Views TransformStack and then clips it using a 
+	 * The renderScene implementation calls this method. This method transforms
+	 * the geometry using the Views TransformStack and then clips it using a
 	 * GeometryClipper.
 	 */
 	protected void renderGeometry(GeometryBuffer aGeometryBuffer)

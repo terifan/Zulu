@@ -54,7 +54,7 @@ public class View extends JComponent
 		mWidth = aWidth;
 		mHeight = aHeight;
 		mTransformStack = new TransformStack();
-		mRenderingStateListeners = new ArrayList<RenderingStateListener>();
+		mRenderingStateListeners = new ArrayList<>();
 		mViewTransform = new ViewTransform();
 
 		mRenderedImage = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().createCompatibleImage(mWidth, mHeight);

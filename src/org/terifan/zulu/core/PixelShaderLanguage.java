@@ -10,7 +10,7 @@ import org.terifan.zeus.util.script.Primitive;
 
 class PixelShaderLanguage extends Language
 {
-	public final Keyword 
+	public final Keyword
 		IMPORT = add(new Keyword("import")),
 		USING = add(new Keyword("using")),
 		INPUT = add(new Keyword("input")),

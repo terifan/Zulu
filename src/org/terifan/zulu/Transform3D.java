@@ -124,7 +124,7 @@ public class Transform3D
 				float x = vertexData[vertexIndex+0];
 				float y = vertexData[vertexIndex+1];
 				float z = vertexData[vertexIndex+2];
-		
+
 				float aw = - fx * x - fy * y - fz * z;
 				float ax =   fw * x + fy * z - fz * y;
 				float ay =   fw * y + fz * x - fx * z;
@@ -166,6 +166,7 @@ public class Transform3D
 	}
 
 
+	@Override
 	public String toString()
 	{
 		return "transate={"+mTranslate+"}, rotate={"+mRotation+"}";
@@ -184,7 +185,7 @@ public class Transform3D
 		{
 			doInitialize();
 		}
-		
+
 		mRotation.limit();
 
 		double scale = 1.0 / mForward.dot(mForward);
@@ -203,8 +204,8 @@ public class Transform3D
 		double tmp = Math.sin(aAngle);
 
 		double qx = aVectorX ? tmp : 0,
-		       qy = aVectorY ? tmp : 0, 
-		       qz = aVectorZ ? tmp : 0, 
+		       qy = aVectorY ? tmp : 0,
+		       qz = aVectorZ ? tmp : 0,
 		       qw = Math.cos(aAngle);
 
 		double fx = mForward.x;
@@ -245,7 +246,7 @@ public class Transform3D
 		if (mRotation.y != 0)
 		{
 			double angle = mRotation.y * Math.PI;
-			qy = Math.sin(angle); 
+			qy = Math.sin(angle);
 			qw = Math.cos(angle);
 
 			if (mRotation.z != 0)
@@ -273,7 +274,7 @@ public class Transform3D
 		if (mRotation.z != 0)
 		{
 			double angle = mRotation.z * Math.PI;
-			qz = Math.sin(angle); 
+			qz = Math.sin(angle);
 			qw = Math.cos(angle);
 
 			fw = rw * qw - rz * qz;
