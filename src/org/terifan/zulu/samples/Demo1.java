@@ -55,7 +55,7 @@ public class Demo1
 		view1.getViewTransform().translate(0,50,-15-150);
 		view1.addRenderingStateListener(new MyRenderingStateListener());
 
-		SceneGraph scene = new SceneGraph(3); // 30.9 58.3 78.2
+		SceneGraph scene = new SceneGraph(1.0); // 30.9 58.3 78.2
 		scene.setPrintPerformanceData(true);
 		scene.addView(view1);
 
@@ -99,7 +99,7 @@ public class Demo1
 		view3.addRenderingStateListener(new MyRenderingStateListener());
 		view4.addRenderingStateListener(new MyRenderingStateListener());
 
-		SceneGraph scene = new SceneGraph(3); // 18 29 38
+		SceneGraph scene = new SceneGraph(1.0); // 18 29 38
 		scene.setPrintPerformanceData(!false);
 		scene.addView(view1);
 		scene.addView(view2);
