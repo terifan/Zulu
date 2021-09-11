@@ -1,6 +1,6 @@
 package org.terifan.zulu.core;
 
-import org.terifan.algebra.Vec3d;
+import org.terifan.vecmath.Vec3d;
 import org.terifan.zulu.Transform3D;
 
 

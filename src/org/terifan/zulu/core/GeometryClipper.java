@@ -1,7 +1,7 @@
 package org.terifan.zulu.core;
 
 import java.awt.Graphics;
-import org.terifan.algebra.Plane;
+import org.terifan.vecmath.Plane;
 import org.terifan.zulu.Material;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.View;

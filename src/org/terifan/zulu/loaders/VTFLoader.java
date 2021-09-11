@@ -6,7 +6,7 @@ import java.util.Stack;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import org.terifan.algebra.Vec3f;
+import org.terifan.vecmath.Vec3f;
 import org.terifan.io.Streams;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.Texture2D.TextureData;

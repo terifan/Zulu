@@ -1,7 +1,7 @@
 package org.terifan.zulu;
 
-import org.terifan.algebra.Vec3d;
-import org.terifan.algebra.Vec4d;
+import org.terifan.vecmath.Vec3d;
+import org.terifan.vecmath.Vec4d;
 import org.terifan.zulu.core.GeometryBuffer;
 
 
