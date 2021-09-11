@@ -52,8 +52,8 @@ public class Texture2D
 				throw new IllegalArgumentException("Resource not found: resource: " + aResource.getName());
 			}
 
-			BufferedImage tmp = null;
-			
+			BufferedImage tmp;
+
 			if (aResource.getName().toLowerCase().endsWith(".vtf"))
 			{
 				Texture2D tex = VTFLoader.decode(aResource);
@@ -136,11 +136,11 @@ public class Texture2D
 				for (int x = 0; x < srcWidth; x+=2, dstOffset++)
 				{
 					int r = 0, g = 0, b = 0, a = 0, s = 0;
-	
+
 					for (int fy = fminy, fyp = 0; fyp < filterHeight; fy++, fyp++)
 					{
 						int yoff = (y + fy) * srcWidth;
-	
+
 						for (int fx = fminx, fxp = 0; fxp < filterWidth; fx++, fxp++)
 						{
 							if (y + fy >= 0 && x + fx >= 0 && y + fy < srcHeight && x + fx < srcWidth)
@@ -158,7 +158,7 @@ public class Texture2D
 							}
 						}
 					}
-	
+
 					a /= s;
 					r /= s;
 					g /= s;
