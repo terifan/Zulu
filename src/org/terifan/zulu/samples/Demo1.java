@@ -9,6 +9,7 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import org.terifan.algebra.Color4f;
 import org.terifan.algebra.Vec2f;
 import org.terifan.algebra.Vec3f;
 import org.terifan.algebra.Vec4f;
@@ -167,7 +168,7 @@ public class Demo1
 		Vec3f [] coords = null;
 		Vec3f [] normals = null;
 		Vec2f [] texCoords = null;
-		Vec4f [] colors = null;
+		Color4f [] colors = null;
 
 		int [] coordIndices = null;
 		int [] normalIndices = null;
@@ -197,7 +198,7 @@ public class Demo1
 			}
 			else if (s.startsWith("colors"))
 			{
-				colors = new Vec4f[Integer.parseInt(s.substring(7))];
+				colors = new Color4f[Integer.parseInt(s.substring(7))];
 			}
 			else if (s.startsWith("normals"))
 			{
@@ -232,7 +233,7 @@ public class Demo1
 				int i = Integer.parseInt(s.substring(0, s.indexOf(" ")));
 				s = s.substring(s.indexOf(" ")+1).trim();
 				String [] t = s.split(" ");
-				colors[i] = new Vec4f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]), Float.parseFloat(t[3]));
+				colors[i] = new Color4f(Float.parseFloat(t[0]), Float.parseFloat(t[1]), Float.parseFloat(t[2]), Float.parseFloat(t[3]));
 			}
 			else if (s.startsWith("normal"))
 			{
