@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.awt.image.VolatileImage;
 import javax.swing.JComponent;
 import java.util.ArrayList;
 import org.terifan.vecmath.Plane;
@@ -23,17 +24,17 @@ public class View extends JComponent
 	private double mFovDegrees;
 	private int mWidth;
 	private int mHeight;
-	private int [] mDepthBuffer;
-	private int [] mFrameBuffer;
-	private Plane [] mClipPlanes;
-	private Plane [] mFrustumPlanes;
+	private int[] mDepthBuffer;
+	private int[] mFrameBuffer;
+	private Plane[] mClipPlanes;
+	private Plane[] mFrustumPlanes;
 	private BufferedImage mRenderedImage;
 	private GeometricProjection mGeometricProjection;
 	private ViewTransform mViewTransform;
 	private ArrayList<RenderingStateListener> mRenderingStateListeners;
 	private TransformStack mTransformStack;
 	private Graphics mRenderedGraphics;
-	private WorkerData [] mWorkerData;
+	private WorkerData[] mWorkerData;
 
 
 	public View(int aWidth, int aHeight)
@@ -77,15 +78,16 @@ public class View extends JComponent
 
 		mFrustumPlanes = new Plane[]
 		{
-			new Plane(new Vec3d(  0,   0,  1),     5), //, true),
-			new Plane(new Vec3d( ch,   0, sh),     0), //, true),
-			new Plane(new Vec3d(-ch,   0, sh),     0), //, true),
-			new Plane(new Vec3d(  0, -cv, sv),     0), //, false),
-			new Plane(new Vec3d(  0,  cv, sv),     0), //, false),
-			new Plane(new Vec3d(  0,   0, -1), -2000), //, false)
+			new Plane(new Vec3d(0, 0, 1), 5), //, true),
+			new Plane(new Vec3d(ch, 0, sh), 0), //, true),
+			new Plane(new Vec3d(-ch, 0, sh), 0), //, true),
+			new Plane(new Vec3d(0, -cv, sv), 0), //, false),
+			new Plane(new Vec3d(0, cv, sv), 0), //, false),
+			new Plane(new Vec3d(0, 0, -1), -2000), //, false)
 		};
 
-		mClipPlanes = new Plane[]{
+		mClipPlanes = new Plane[]
+		{
 			mFrustumPlanes[0],
 			mFrustumPlanes[1],
 			mFrustumPlanes[2]
@@ -109,25 +111,25 @@ public class View extends JComponent
 	}
 
 
-	public Plane [] getFrustumPlanes()
+	public Plane[] getFrustumPlanes()
 	{
 		return mFrustumPlanes;
 	}
 
 
-	public Plane [] getClipPlanes()
+	public Plane[] getClipPlanes()
 	{
 		return mClipPlanes;
 	}
 
 
-	public int [] getFrameBuffer()
+	public int[] getFrameBuffer()
 	{
 		return mFrameBuffer;
 	}
 
 
-	public int [] getDepthBuffer()
+	public int[] getDepthBuffer()
 	{
 		return mDepthBuffer;
 	}
@@ -166,7 +168,7 @@ public class View extends JComponent
 	@Override
 	public Dimension getPreferredSize()
 	{
-		return new Dimension(mWidth,mHeight);
+		return new Dimension(mWidth, mHeight);
 	}
 
 
@@ -194,8 +196,7 @@ public class View extends JComponent
 	/**
 	 * Adds a RenderingStateListener to this View.
 	 *
-	 * @param aRenderingStateListener
-	 *   the RenderingStateListener to add.
+	 * @param aRenderingStateListener the RenderingStateListener to add.
 	 */
 	public void addRenderingStateListener(RenderingStateListener aRenderingStateListener)
 	{
@@ -206,10 +207,8 @@ public class View extends JComponent
 	/**
 	 * Removes a RenderingStateListener from this View.
 	 *
-	 * @param aRenderingStateListener
-	 *   the RenderingStateListener to remove.
-	 * @return
-	 *   true if a RenderingStateListener was removed.
+	 * @param aRenderingStateListener the RenderingStateListener to remove.
+	 * @return true if a RenderingStateListener was removed.
 	 */
 	public boolean removeRenderingStateListener(RenderingStateListener aRenderingStateListener)
 	{

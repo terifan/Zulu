@@ -63,8 +63,10 @@ public class Demo1
 
 		JPanel panel = new JPanel();
 		panel.add(view1);
+//		panel.setDoubleBuffered(false);
 
 		JFrame frame = new JFrame();
+
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.add(panel);
 		frame.pack();
@@ -99,7 +101,7 @@ public class Demo1
 		view3.addRenderingStateListener(new MyRenderingStateListener());
 		view4.addRenderingStateListener(new MyRenderingStateListener());
 
-		SceneGraph scene = new SceneGraph(1.0); // 18 29 38
+		SceneGraph scene = new SceneGraph(8); // 18 29 38
 		scene.setPrintPerformanceData(!false);
 		scene.addView(view1);
 		scene.addView(view2);

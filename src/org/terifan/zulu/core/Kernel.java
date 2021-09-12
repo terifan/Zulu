@@ -19,7 +19,7 @@ public abstract class Kernel
 	private int mRenderedFrameIndex;
 	private GeometryClipper mGeometryClipper;
 
-	WorkerThread [] mWorkerThreads;
+	WorkerThread[] mWorkerThreads;
 	boolean mShutdown;
 	boolean mPaused;
 	boolean mTraversing;
@@ -38,10 +38,8 @@ public abstract class Kernel
 	/**
 	 * Constructs a Kernel which use a specified percent of available processors.
 	 *
-	 * @param aWorkerThreadPercent
-	 *   a value between 0.0 and 1.0 specifying how many percent of available
-	 *   processors should be used. This method don't allow more threads than
-	 *   available CPU count to be created.
+	 * @param aWorkerThreadPercent a value between 0.0 and 1.0 specifying how many percent of available processors should be used. This
+	 * method don't allow more threads than available CPU count to be created.
 	 */
 	protected Kernel(double aWorkerThreadPercent)
 	{
@@ -52,8 +50,7 @@ public abstract class Kernel
 	/**
 	 * Constructs a Kernel which use a specified number processors.
 	 *
-	 * @param aWorkerThreadCount
-	 *   specifies how many processors should be used.
+	 * @param aWorkerThreadCount specifies how many processors should be used.
 	 */
 	protected Kernel(int aWorkerThreadCount)
 	{
@@ -89,7 +86,7 @@ public abstract class Kernel
 
 		for (int i = 0; i < mWorkerThreadCount; i++)
 		{
-			boolean lastThread = i == mWorkerThreadCount-1;
+			boolean lastThread = i == mWorkerThreadCount - 1;
 			mWorkerThreads[i] = new WorkerThread(this, i, lastThread);
 		}
 		for (int i = 0; i < mWorkerThreadCount; i++)
@@ -165,9 +162,8 @@ public abstract class Kernel
 
 
 	/**
-	 * One of the WorkerThread threads calls this method once for each
-	 * View. This method calls the initializeScene for the first View and then
-	 * the renderScene method.
+	 * One of the WorkerThread threads calls this method once for each View. This method calls the initializeScene for the first View and
+	 * then the renderScene method.
 	 */
 	protected void beginFrame()
 	{
@@ -198,9 +194,8 @@ public abstract class Kernel
 
 
 	/**
-	 * The last of the WorkerThread threads to finish will call this method.
-	 * This method finalizes current frame and initializes the worker threads
-	 * for the next frame.
+	 * The last of the WorkerThread threads to finish will call this method. This method finalizes current frame and initializes the worker
+	 * threads for the next frame.
 	 *
 	 * When this method is call, all worker threads are in a waiting state.
 	 */
@@ -245,9 +240,8 @@ public abstract class Kernel
 
 
 	/**
-	 * The finishFrame method calls this method after the current frame has been
-	 * finalized and before the worker threads are initialized for the next
-	 * frame. This method implementation is emtpy.
+	 * The finishFrame method calls this method after the current frame has been finalized and before the worker threads are initialized for
+	 * the next frame. This method implementation is emtpy.
 	 */
 	protected void finishView()
 	{
@@ -258,10 +252,10 @@ public abstract class Kernel
 	{
 		int stepSize = 1;
 
-		for (int i = 0; i < mWorkerThreads.length-1; i++)
+		for (int i = 0; i < mWorkerThreads.length - 1; i++)
 		{
-			WorkerData wd0 = mWorkerThreads[i  ].getWorkerData();
-			WorkerData wd1 = mWorkerThreads[i+1].getWorkerData();
+			WorkerData wd0 = mWorkerThreads[i].getWorkerData();
+			WorkerData wd1 = mWorkerThreads[i + 1].getWorkerData();
 
 			long delay0 = mPublishTime - wd0.mSyncTime;
 			long delay1 = mPublishTime - wd1.mSyncTime;
@@ -303,21 +297,21 @@ public abstract class Kernel
 
 			if (mPerformanceUpdate > 0)
 			{
-				mPerformanceTextA = ""+mRenderedFrameIndex;
-				mPerformanceTextB = ""+(int)((mRenderedFrameIndex-100)/((currenTime-mPerformanceTotalRuntime)/1000000000000.0))/1000f;
-				mPerformanceTextC = ""+(int)(mPerformanceCount/((currenTime-mPerformanceStart)/10000000000.0))/10f;
+				mPerformanceTextA = "" + mRenderedFrameIndex;
+				mPerformanceTextB = "" + (int)((mRenderedFrameIndex - 100) / ((currenTime - mPerformanceTotalRuntime) / 1000000000000.0)) / 1000f;
+				mPerformanceTextC = "" + (int)(mPerformanceCount / ((currenTime - mPerformanceStart) / 10000000000.0)) / 10f;
 			}
 			mPerformanceStart = currenTime;
-			mPerformanceUpdate = mPerformanceStart+500000000L; // update the performance counter twice per second
+			mPerformanceUpdate = mPerformanceStart + 500000000L; // update the performance counter twice per second
 			mPerformanceCount = 0;
 		}
 
 		int w = mView.getWidth();
 
 		g.setColor(Color.WHITE);
-		g.drawString(mPerformanceTextC, w-35, 12);
-		g.drawString(mPerformanceTextB, w-135, 12);
-		g.drawString(mPerformanceTextA, w-235, 12);
+		g.drawString(mPerformanceTextC, w - 35, 12);
+		g.drawString(mPerformanceTextB, w - 135, 12);
+		g.drawString(mPerformanceTextA, w - 235, 12);
 
 		mGeometryClipper.printPerformanceData(g);
 
@@ -347,9 +341,8 @@ public abstract class Kernel
 
 
 	/**
-	 * The renderScene implementation calls this method. This method transforms
-	 * the geometry using the Views TransformStack and then clips it using a
-	 * GeometryClipper.
+	 * The renderScene implementation calls this method. This method transforms the geometry using the Views TransformStack and then clips
+	 * it using a GeometryClipper.
 	 */
 	protected void renderGeometry(GeometryBuffer aGeometryBuffer)
 	{
