@@ -46,6 +46,7 @@ public class PixelShaderCompiler
 		{
 			try
 			{
+				System.out.println("#");
 				File f = new File(PixelShaderCompiler.class.getResource("PixelRenderer.zst").getPath());
 				char [] buf = new char[(int)f.length()];
 				try (FileReader fr = new FileReader(f))
