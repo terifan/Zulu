@@ -1,7 +1,7 @@
 package org.terifan.zulu.core;
 
 import java.awt.Graphics;
-import org.terifan.vecmath.Plane;
+import org.terifan.geometry.Plane;
 import org.terifan.zulu.Material;
 import org.terifan.zulu.Texture2D;
 import org.terifan.zulu.View;
@@ -35,7 +35,7 @@ class GeometryClipper
 	{
 		aGraphics.drawString("hidden="+mPerfHiddenSurfaceCount, 102, 12);
 		aGraphics.drawString("clip="+mPerfClipPlaneCount, 102, 24);
-		
+
 		mPerfHiddenSurfaceCount = 0;
 		mPerfClipPlaneCount = 0;
 	}
@@ -114,7 +114,7 @@ class GeometryClipper
 				geometricProjection.project(newVertexData, newVertexIndex, newVertexCount, fieldCount);
 
 				WorkerThread [] threads = aKernel.mWorkerThreads;
-	
+
 				// find all slices this polygon intersects
 
 				int bits = 0;
