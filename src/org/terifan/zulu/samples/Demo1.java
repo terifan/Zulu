@@ -88,10 +88,10 @@ public class Demo1
 
 	private void test2() throws IOException
 	{
-		View view1 = new View(512, 384, "view1");
-		View view2 = new View(512, 384, "view2");
-		View view3 = new View(512, 384, "view3");
-		View view4 = new View(512, 384, "view4");
+		View view1 = new View(1280, 768, "view1");
+		View view2 = new View(1280, 768, "view2");
+		View view3 = new View(1280, 768, "view3");
+		View view4 = new View(1280, 768, "view4");
 		view1.getViewTransform().translate(0,50,-15-150);
 		view2.getViewTransform().translate(0,50,0);
 		view3.getViewTransform().translate(0,50,-15-150);
@@ -101,7 +101,7 @@ public class Demo1
 		view3.addRenderingStateListener(new MyRenderingStateListener());
 		view4.addRenderingStateListener(new MyRenderingStateListener());
 
-		SceneGraph scene = new SceneGraph(8); // 18 29 38
+		SceneGraph scene = new SceneGraph(12); // 18 29 38
 		scene.setPrintPerformanceData(!false);
 		scene.addView(view1);
 		scene.addView(view2);

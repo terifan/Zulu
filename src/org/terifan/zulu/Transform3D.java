@@ -186,7 +186,7 @@ public class Transform3D
 			doInitialize();
 		}
 
-		mRotation.limit();
+		mRotation.trunc();
 
 		double scale = 1.0 / mForward.dot(mForward);
 
